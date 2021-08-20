@@ -18,9 +18,9 @@
 
 	
 ## Code documentation - Release 0.1.0 - date
-* feature 1
-* feature 2
-* feature 3
+* User can Login
+* User can Register
+* User can Buy Book
   
 
 To run the application locally : 
