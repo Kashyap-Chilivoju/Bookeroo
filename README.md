@@ -1,6 +1,6 @@
 # RMIT SEPT 2021 Major Project
 
-# Group Caffeinated Potatos
+# Group Caffeinated Potatoes
 
 ## Members
 * Kashyap Sunny Chilivoju   s3659816   Scrum Master  
@@ -17,7 +17,7 @@
 * Microsoft Teams: https://teams.microsoft.com/l/team/19%3aMNJjwfrPVfY_XE6OoXLwA8gGIe4EmXJ8glBgTCVMjCg1%40thread.tacv2/conversations?groupId=4a7eb8f7-e08c-4786-be6e-25356a737be1&tenantId=d1323671-cdbe-4417-b4d4-bdb24b51316b  
 
 	
-## Code documentation - Release 0.1.0 - date
+## Code documentation - Release 0.1.0 - 28/08/2021
 * User can Login
 * User can Register
 * User can Buy Book
