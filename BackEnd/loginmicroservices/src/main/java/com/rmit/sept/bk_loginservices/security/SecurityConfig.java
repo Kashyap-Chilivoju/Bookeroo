@@ -47,6 +47,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {return  new JwtAuthenticationFilter();}
 
+
+    protected void configureNEW(HttpSecurity http) throws Exception {
+        http.authorizeRequests().antMatchers("/").permitAll().and()
+                .authorizeRequests().antMatchers("/console/**").permitAll();
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
+    }
+
+    //Replace configure method with this in deployment
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
@@ -54,7 +63,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .headers().frameOptions().sameOrigin() //To enable H2 Database
+                .headers().frameOptions().disable() //To enable H2 Database
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll()
                 .and()
                 .authorizeRequests()
                 .antMatchers(
@@ -66,7 +82,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.jpg",
                         "/**/*.html",
                         "/**/*.css",
-                        "/**/*.js"
+                        "/**/*.js",
+                        "/login",
+                        "/home"
                 ).permitAll()
                 .antMatchers(SecurityConstant.SIGN_UP_URLS).permitAll()
                 //.antMatchers("/api/users/**").permitAll()
