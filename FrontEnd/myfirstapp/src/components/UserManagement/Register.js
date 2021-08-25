@@ -3,6 +3,7 @@ import { createNewUser } from "../../actions/securityActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
+import axios from "axios";
 
 class Register extends Component {
     constructor(){
@@ -36,8 +37,8 @@ class Register extends Component {
       password: this.state.password,
       confirmPassword: this.state.confirmPassword
     };
-
-    this.props.createNewUser(newUser, this.props.history);
+    axios.post("localhost:8080/api/users/register", newUser);
+    createNewUser(newUser, this.props.history);
   }
 
   onChange(e) {
@@ -52,7 +53,7 @@ class Register extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">Create your Account</p>
-              <form action="create-profile.html">
+              <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
                     type="text"
