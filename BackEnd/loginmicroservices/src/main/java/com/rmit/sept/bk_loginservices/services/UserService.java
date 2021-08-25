@@ -20,6 +20,7 @@ public class UserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public User saveUser (User newUser){
+        System.out.println("SAVE USER METHOD CALLED"); //TODO REMOVE
 
       /*  newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
         //Username has to be unique (exception)
