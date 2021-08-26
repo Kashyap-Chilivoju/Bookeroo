@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { createNewUser } from "../../actions/securityActions";
-import { testMethod } from "../../actions/securityActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
-import {createPerson} from "../../actions/personActions";
 
 class Register extends Component {
     constructor(){
@@ -17,6 +15,7 @@ class Register extends Component {
       confirmPassword: "",
       errors: {}
     };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -38,14 +37,16 @@ class Register extends Component {
       password: this.state.password,
       confirmPassword: this.state.confirmPassword
     };
-
+    console.log(newUser);
     this.props.createNewUser(newUser, this.props.history);
-  }
+    }
 
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+        this.setState({ [e.target.name]: e.target.value });
     }
+
   render() {
+        console.log("Renderman");
       const { errors } = this.state;
     return (
       <div className="register">
@@ -62,8 +63,9 @@ class Register extends Component {
                         "is-invalid": errors.name
                     }) }
                     placeholder="Name"
-                    name="name"
-                    value= {this.state.name}
+                    name="fullName"
+                    value= {this.state.fullName}
+                    onChange={this.onChange}
                     required
                   />
                   {errors.name && (
@@ -75,7 +77,9 @@ class Register extends Component {
                     type="email"
                     className="form-control form-control-lg"
                     placeholder="Email Address"
-                    name="email"
+                    name="username"
+                    value= {this.state.username}
+                    onChange={this.onChange}
                   />
                 </div>
                 <div className="form-group">
@@ -84,6 +88,8 @@ class Register extends Component {
                     className="form-control form-control-lg"
                     placeholder="Password"
                     name="password"
+                    value= {this.state.password}
+                    onChange={this.onChange}
                   />
                 </div>
                 <div className="form-group">
@@ -91,7 +97,9 @@ class Register extends Component {
                     type="password"
                     className="form-control form-control-lg"
                     placeholder="Confirm Password"
-                    name="password2"
+                    name="confirmPassword"
+                    value= {this.state.confirmPassword}
+                    onChange={this.onChange}
                   />
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
@@ -104,8 +112,8 @@ class Register extends Component {
   }
 }
 Register.propTypes = {
-    createNewUser: PropTypes.func.isRequired,
-    errors: PropTypes.object.isRequired
+    createNewUser: PropTypes.func.isRequired//,
+    //errors: PropTypes.object.isRequired
 };
     export default connect(
         null,
