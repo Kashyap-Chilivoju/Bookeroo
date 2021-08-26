@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { createNewUser } from "../../actions/securityActions";
+import { testMethod } from "../../actions/securityActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
-import axios from "axios";
+import {createPerson} from "../../actions/personActions";
 
 class Register extends Component {
     constructor(){
@@ -37,8 +38,8 @@ class Register extends Component {
       password: this.state.password,
       confirmPassword: this.state.confirmPassword
     };
-    axios.post("localhost:8080/api/users/register", newUser);
-    createNewUser(newUser, this.props.history);
+
+    this.props.createNewUser(newUser, this.props.history);
   }
 
   onChange(e) {
@@ -102,4 +103,11 @@ class Register extends Component {
     );
   }
 }
-export default Register;
+Register.propTypes = {
+    createNewUser: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired
+};
+    export default connect(
+        null,
+        { createNewUser }
+    )(Register);
