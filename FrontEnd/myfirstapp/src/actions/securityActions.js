@@ -22,12 +22,14 @@ export const createNewUser = (newUser, history) => async dispatch => {
     }
 };
 
-export const login = LoginRequest => async dispatch => {
+export const login = loginRequest => async dispatch => {
     try {
-
         //post => login request
+        const res = await axios.post("http://localhost:8080/api/users/login", loginRequest)
 
         //extract token from res.data
+        //access token value with 'res.data.token' May need sanitization.
+        console.log(res.data.token);
 
         //set our token in the local storage
 
