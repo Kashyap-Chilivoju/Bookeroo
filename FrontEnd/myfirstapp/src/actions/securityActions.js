@@ -10,7 +10,6 @@ export const createNewUser = (newUser, history) => async dispatch => {
         const res = await axios.post("http://localhost:8080/api/users/register", newUser);
         history.push("/login");
         dispatch({
-            type: GET_ERRORS,
             payload: {}
         });
     }
@@ -24,25 +23,34 @@ export const createNewUser = (newUser, history) => async dispatch => {
 
 export const login = loginRequest => async dispatch => {
     try {
-        //post => login request
-        const res = await axios.post("http://localhost:8080/api/users/login", loginRequest)
-
-        //extract token from res.data
-        //access token value with 'res.data.token' May need sanitization.
-        console.log(res.data.token);
-
-        //set our token in the local storage
-
-        // set our token in header 
-
-        //decode the token on React
-
+        // post => Login Request
+        const res = await axios.post("http://localhost:8080/api/users/login", loginRequest);
+        // extract token from res.data
+        const { token } = res.data;
+        // store the token in the localStorage
+        localStorage.setItem("jwtToken", token);
+        // set our token in header ***
+        setJWTToken(token);
+        // decode token on React
+        const decoded = jwt_decode(token);
         // dispatch to our securityReducer
-
+        dispatch({
+            type: SET_CURRENT_USER,
+            payload: decoded
+        });
+    } catch (err) {
+        dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+        });
     }
-    catch (err)
-    {
-
-    }
-
 }
+
+export const logout = () => dispatch => {
+    localStorage.removeItem("jwtToken");
+    setJWTToken(false);
+    dispatch({
+        type: SET_CURRENT_USER,
+        payload: {}
+    });
+};
