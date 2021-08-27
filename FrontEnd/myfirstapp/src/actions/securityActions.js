@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 export const createNewUser = (newUser, history) => async dispatch => {
     console.log("createNewUser");
     try{
-        const res = await axios.post("http://localhost:8080/api/users/register", newUser);
+        const response = await axios.post("http://localhost:8080/api/users/register", newUser);
         history.push("/login");
         dispatch({
             payload: {}
@@ -16,17 +16,19 @@ export const createNewUser = (newUser, history) => async dispatch => {
     catch (err){
         dispatch ({
             type: GET_ERRORS,
-            payload: err.response.data
+            payload: null//err.response.data // TO DO COMPLETE PROPER ERROR
         });
     }
 };
 
+// TO DO CHECK WHETHER RETURNED TOKEN NEEDS TO BE SANITISED
 export const login = loginRequest => async dispatch => {
     try {
         // post => Login Request
         const res = await axios.post("http://localhost:8080/api/users/login", loginRequest);
         // extract token from res.data
         const { token } = res.data;
+        console.log(token);
         // store the token in the localStorage
         localStorage.setItem("jwtToken", token);
         // set our token in header ***
@@ -41,7 +43,7 @@ export const login = loginRequest => async dispatch => {
     } catch (err) {
         dispatch({
             type: GET_ERRORS,
-            payload: err.response.data
+            payload: null//err.response.data //TO DO COMPLETE PROPER ERROR
         });
     }
 }

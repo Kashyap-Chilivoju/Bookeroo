@@ -47,7 +47,6 @@ class Register extends Component {
     }
 
   render() {
-        console.log("Renderman");
       const { errors } = this.state;
     return (
       <div className="register">

@@ -13,7 +13,7 @@ import Register from "./components/UserManagement/Register";
 import Login from "./components/UserManagement/Login";
 
 import jwt_decode from "jwt-decode";
-import setJWTToken from "./securityUtils/setJWTToken";
+import { setJWTToken } from "./securityUtils/setJWTToken";
 import { SET_CURRENT_USER } from "./actions/types";
 import { logout } from "./actions/securityActions";
 import SecuredRoute from "./securityUtils/SecureRoute";
