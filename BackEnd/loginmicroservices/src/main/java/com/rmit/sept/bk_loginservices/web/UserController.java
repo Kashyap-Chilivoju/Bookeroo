@@ -39,7 +39,6 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result){
-        System.out.println("REGISTER POST METHOD CALLED"); //TODO REMOVE
         // Validate passwords match
         userValidator.validate(user,result);
 
@@ -48,7 +47,7 @@ public class UserController {
 
         User newUser = userService.saveUser(user);
 
-        return  new ResponseEntity<User>(newUser, HttpStatus.CREATED);
+        return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
     }
 
 
