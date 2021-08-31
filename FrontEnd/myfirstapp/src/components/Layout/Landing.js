@@ -13,7 +13,7 @@ class Landing extends Component {
                   Home Page
                 </h1>
                 <p className="lead">
-                  Create your account to join 
+                  Create your account to join
                 </p>
                 <hr />
                 <Link className="btn btn-lg btn-primary mr-2" to="/register">
