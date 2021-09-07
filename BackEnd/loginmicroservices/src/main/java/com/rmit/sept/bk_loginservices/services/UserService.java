@@ -1,8 +1,5 @@
 package com.rmit.sept.bk_loginservices.services;
 
-
-
-
 import com.rmit.sept.bk_loginservices.Repositories.UserRepository;
 import com.rmit.sept.bk_loginservices.exceptions.UsernameAlreadyExistsException;
 import com.rmit.sept.bk_loginservices.model.User;
@@ -20,14 +17,7 @@ public class UserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public User saveUser (User newUser){
-        System.out.println("SAVE USER METHOD CALLED"); //TODO REMOVE
 
-      /*  newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
-        //Username has to be unique (exception)
-        // Make sure that password and confirmPassword match
-        // We don't persist or show the confirmPassword
-        return userRepository.save(newUser);
-       */
         try{
             newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
             //Username has to be unique (exception)

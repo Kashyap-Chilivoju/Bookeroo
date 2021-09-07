@@ -19,7 +19,6 @@ class Login extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  // TO DO FIX ONCE TOKEN IMPLEMENTATION IS DONE.
   componentDidMount() {
     /*
     if (this.props.security.validToken) {

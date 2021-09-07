@@ -48,7 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {return  new JwtAuthenticationFilter();}
 
-
     protected void configureNEW(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/").permitAll().and()
                 .authorizeRequests().antMatchers("/console/**").permitAll();
@@ -56,7 +55,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
     }
 
-    //Replace configure method with this in deployment
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()

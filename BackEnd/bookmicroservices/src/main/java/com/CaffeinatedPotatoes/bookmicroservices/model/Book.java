@@ -59,6 +59,4 @@ public class Book {
         this.title = title;
     }
 
-
-
 }
