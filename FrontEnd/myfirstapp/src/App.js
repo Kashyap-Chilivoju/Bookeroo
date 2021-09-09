@@ -11,6 +11,9 @@ import store from "./store";
 import Landing from "./components/Layout/Landing";
 import Register from "./components/UserManagement/Register";
 import Login from "./components/UserManagement/Login";
+import Buy from "./components/BuySellAndPublish/Buy"
+import Sell from "./components/BuySellAndPublish/Sell"
+import Publish from "./components/BuySellAndPublish/Publish"
 
 import jwt_decode from "jwt-decode";
 import { setJWTToken } from "./securityUtils/setJWTToken";
@@ -49,6 +52,9 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/buy" component={Buy}/>
+            <Route exact path="/sell" component={Sell}/>
+            <Route exact path="/publish" component={Publish}/>
 
             {
               //Private Routes
