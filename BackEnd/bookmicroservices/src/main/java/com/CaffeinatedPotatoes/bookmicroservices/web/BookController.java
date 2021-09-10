@@ -29,6 +29,18 @@ public class BookController {
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
+    @GetMapping ("/getAll")
+    public ResponseEntity<?> getAll(@Valid @RequestBody (required = false) String optional, BindingResult result){
+        ArrayList<Book> bookArrayList = bookRepository.findAll();
+
+        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+        if(errorMap != null) {
+            return errorMap;
+        }
+
+        return new ResponseEntity<>(bookArrayList, HttpStatus.FOUND);
+    }
+
     @GetMapping ("/getByID")
     public ResponseEntity<?> getByID(@Valid @RequestBody BookRequest bookRequest, BindingResult result){
         Book returnedBook = bookRepository.getBookById(bookRequest.getBookIdLong());
