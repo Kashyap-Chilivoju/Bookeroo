@@ -8,4 +8,4 @@ export const setJWTToken = token => {
     }
 };
 
-export default setJWTToken; 
+export default setJWTToken;

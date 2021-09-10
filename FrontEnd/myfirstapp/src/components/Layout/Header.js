@@ -4,10 +4,10 @@ class Header extends Component {
     render() {
         return (
             <div>
-            <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+            <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
             <div className="container">
                 <a className="navbar-brand" href="/Dashboard">
-                    Person Management Tool
+                    Bookeroo
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
                     <span className="navbar-toggler-icon" />
@@ -21,16 +21,21 @@ class Header extends Component {
                             </a>
                         </li>
                     </ul>
+
+                    <form class = "form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+                                <button class = "btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
     
                     <ul className="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <a className="nav-link " href="/register">
-                                Sign Up
+                    <li className="nav-item">
+                            <a className="nav-link" href="/login">
+                                Login
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/login">
-                                Login
+                            <a className="nav-link " href="/register">
+                                Register
                             </a>
                         </li>
                     </ul>
