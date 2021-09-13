@@ -41,8 +41,8 @@ public class BookController {
         return new ResponseEntity<>(bookArrayList, HttpStatus.FOUND);
     }
 
-    @GetMapping ("/getByID")
-    public ResponseEntity<?> getByID(@Valid @RequestBody BookRequest bookRequest, BindingResult result){
+    @GetMapping ("/getBookByID")
+    public ResponseEntity<?> getBookByID(@Valid @RequestBody BookRequest bookRequest, BindingResult result){
         Book returnedBook = bookRepository.getBookById(bookRequest.getBookIdLong());
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
@@ -50,11 +50,11 @@ public class BookController {
             return errorMap;
         }
 
-        return new ResponseEntity<>(returnedBook, HttpStatus.FOUND);
+        return new ResponseEntity<>(returnedBook, HttpStatus.OK);
     }
 
-    @GetMapping ("/searchByTitle")
-    public ResponseEntity<?> getByID(@Valid @RequestBody SearchRequest searchRequest, BindingResult result){
+    @GetMapping ("/getBooksByTitle")
+    public ResponseEntity<?> getBooksByTitle(@Valid @RequestBody SearchRequest searchRequest, BindingResult result){
         ArrayList<Book> returnedBooks = bookRepository.findBooksByTitleContains(searchRequest.getSearchQuery());
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
@@ -62,19 +62,40 @@ public class BookController {
             return errorMap;
         }
 
-        return new ResponseEntity<>(returnedBooks, HttpStatus.FOUND);
+        return new ResponseEntity<>(returnedBooks, HttpStatus.OK);
     }
 
     @PostMapping("/createNewBook")
-    public ResponseEntity<?> getBookByID(@Valid @RequestBody Book book, BindingResult result){
-
+    public ResponseEntity<?> createNewBook(@Valid @RequestBody Book book, BindingResult result){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap != null) {
             return errorMap;
         }
 
         Book newBook = bookService.saveBook(book);
-
         return new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
+
+    @PostMapping("/updateBook")
+    public ResponseEntity<?> updateBook(@Valid @RequestBody Book book, BindingResult result){
+        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+        if(errorMap != null) {
+            return errorMap;
+        }
+
+        Book updatedBook = bookRepository.save(book);
+        return new ResponseEntity<>(updatedBook, HttpStatus.OK);
+    }
+
+    @PostMapping("/deleteBook")
+    public ResponseEntity<?> deleteBook(@Valid @RequestBody BookRequest bookRequest, BindingResult result){
+        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+        if(errorMap != null) {
+            return errorMap;
+        }
+
+        bookRepository.deleteById(bookRequest.getBookIdLong());
+        return new ResponseEntity<>("Deletion successful", HttpStatus.OK);
+    }
+
 }

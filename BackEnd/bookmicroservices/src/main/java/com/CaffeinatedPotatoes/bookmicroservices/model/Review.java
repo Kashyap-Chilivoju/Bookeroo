@@ -4,24 +4,20 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Book {
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
-    private String isbn10;
-    @Column(unique = true)
-    private String isbn13;
-    private String author;
-    private String title;
+    private Long bookId;
+    private int rating;
+
+    @Lob
+    private String review;
+
     @Transient
     private Date create_At;
     private Date update_At;
-
-    public Book(){
-
-    }
 
     public Long getId() {
         return id;
@@ -31,36 +27,28 @@ public class Book {
         this.id = id;
     }
 
-    public String getIsbn10() {
-        return isbn10;
+    public Long getBookId() {
+        return bookId;
     }
 
-    public void setIsbn10(String isbn10) {
-        this.isbn10 = isbn10;
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
     }
 
-    public String getIsbn13() {
-        return isbn13;
+    public int getRating() {
+        return rating;
     }
 
-    public void setIsbn13(String isbn13) {
-        this.isbn13 = isbn13;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getReview() {
+        return review;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public void setReview(String review) {
+        this.review = review;
     }
 
     public Date getCreate_At() {
