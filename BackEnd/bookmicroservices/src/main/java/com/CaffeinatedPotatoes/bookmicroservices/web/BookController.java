@@ -65,7 +65,7 @@ public class BookController {
         return new ResponseEntity<>(returnedBooks, HttpStatus.OK);
     }
 
-    @PostMapping("/createNewBook")
+    @PutMapping("/createNewBook")
     public ResponseEntity<?> createNewBook(@Valid @RequestBody Book book, BindingResult result){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap != null) {
@@ -76,7 +76,7 @@ public class BookController {
         return new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
 
-    @PostMapping("/updateBook")
+    @PatchMapping("/updateBook")
     public ResponseEntity<?> updateBook(@Valid @RequestBody Book book, BindingResult result){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap != null) {
@@ -87,7 +87,7 @@ public class BookController {
         return new ResponseEntity<>(updatedBook, HttpStatus.OK);
     }
 
-    @PostMapping("/deleteBook")
+    @DeleteMapping("/deleteBook")
     public ResponseEntity<?> deleteBook(@Valid @RequestBody BookRequest bookRequest, BindingResult result){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap != null) {

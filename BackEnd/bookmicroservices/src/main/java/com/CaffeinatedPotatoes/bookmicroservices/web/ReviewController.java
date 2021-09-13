@@ -52,7 +52,7 @@ public class ReviewController {
         return new ResponseEntity<>(reviewList, HttpStatus.OK);
     }
 
-    @PostMapping("/createNewReview")
+    @PutMapping("/createNewReview")
     public ResponseEntity<?> createNewReview(@Valid @RequestBody Review review, BindingResult result){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         Review newReview = reviewService.saveReview(review);
@@ -64,7 +64,7 @@ public class ReviewController {
         return new ResponseEntity<>(newReview, HttpStatus.CREATED);
     }
 
-    @PostMapping("/updateReview")
+    @PatchMapping("/updateReview")
     public ResponseEntity<?> updateReview(@Valid @RequestBody Review review, BindingResult result){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         Review updatedReview = reviewRepository.save(review);
@@ -76,7 +76,7 @@ public class ReviewController {
         return new ResponseEntity<>(updatedReview, HttpStatus.OK);
     }
 
-    @PostMapping("/deleteReview")
+    @DeleteMapping ("/deleteReview")
     public ResponseEntity<?> deleteReview(@Valid @RequestBody ReviewRequest reviewRequest, BindingResult result){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         reviewRepository.deleteById(reviewRequest.getReviewIdLong());
