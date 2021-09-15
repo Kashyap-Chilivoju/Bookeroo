@@ -16,6 +16,4 @@ public class BookRequest {
         this.bookId = bookId;
     }
 
-
-
 }
