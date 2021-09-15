@@ -9,7 +9,11 @@ class OrderConfirm extends Component {
                 <hr />
                     <h5>Delivery Address</h5>
                         <div class="container mt-5 mb-5">
-                            <p>123 Fake Street, Springfield, Illinois</p>
+                            <form class = "form-inline">
+                                <p class="form-control mr-sm-2">123 Fake Street, Springfield, Illinois</p>
+                                <p>Change</p>
+                            </form>
+                            <p>Add Delivery Instructions</p>
                         </div>
 
                 <hr />
