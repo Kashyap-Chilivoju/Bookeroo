@@ -9,24 +9,30 @@ class Publish extends Component {
                             <div class="form-group">
                                 <input type="file" class="form-control-file" id="bookCover"></input>
                             </div>
+
                             <div class="col-xs-4">
                                 <label for="bookTitle">Book Title</label>
                                 <input type="text" class="form-control" id="bookTitle"></input>
                             </div>
 
                             <div class="col-xs-4">
-                                <label for="bookYear">Book Year</label>
-                                <input type="text" class="form-control" id="bookYear"></input>
+                                <label for="bookID">Book ID</label>
+                                <input type="text" class="form-control" id="bookID"></input>
                             </div>
 
                             <div class="col-xs-4">
-                                <label for="bookGenre">Book Genre</label>
-                                <input type="text" class="form-control" id="bookGenre"></input>
+                                <label for="bookAuthor">Author</label>
+                                <input type="text" class="form-control" id="bookAuthor"></input>
                             </div>
 
                             <div class="col-xs-4">
-                                <label for="isbn">ISBN</label>
-                                <input type="text" class="form-control" id="isbn"></input>
+                                <label for="isbn13">ISBN-13</label>
+                                <input type="text" class="form-control" id="isbn13"></input>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <label for="isbn10">ISBN-10</label>
+                                <input type="text" class="form-control" id="isbn10"></input>
                             </div>
 
                             <div class="col-xs-4">

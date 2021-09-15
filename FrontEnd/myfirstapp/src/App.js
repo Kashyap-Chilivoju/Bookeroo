@@ -14,6 +14,7 @@ import Login from "./components/UserManagement/Login";
 import Buy from "./components/BuySellAndPublish/Buy"
 import Sell from "./components/BuySellAndPublish/Sell"
 import Publish from "./components/BuySellAndPublish/Publish"
+import Cart from "./components/BuySellAndPublish/Cart"
 
 import jwt_decode from "jwt-decode";
 import { setJWTToken } from "./securityUtils/setJWTToken";
@@ -55,6 +56,7 @@ class App extends Component {
             <Route exact path="/buy" component={Buy}/>
             <Route exact path="/sell" component={Sell}/>
             <Route exact path="/publish" component={Publish}/>
+            <Route exact path="/cart" component={Cart}/>
 
             {
               //Private Routes

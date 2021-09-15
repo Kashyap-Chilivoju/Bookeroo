@@ -29,15 +29,18 @@ class Header extends Component {
     
                     <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                            <a className="nav-link" href="/login">
-                                Login
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link " href="/register">
-                                Register
-                            </a>
-                        </li>
+                        <a className="nav-link" href="/login">
+                            Login
+                        </a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link " href="/register">
+                            Register
+                        </a>
+                    </li>
+                    <li className ="nav-item">
+                        <a class="fa fa-shopping-cart" href="/cart"></a>
+                    </li>
                     </ul>
                 </div>
             </div>

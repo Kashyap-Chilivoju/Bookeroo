@@ -17,7 +17,7 @@ class Landing extends Component {
                       <li type = "button" data-target="#bookCarousel" data-slide-to="2"></li>
                   </ol>
 
-                  <div class="carousel-inner">
+                  <a class="carousel-inner" href="/buy">
                     <div class="carousel-item active">
                       <img class = "d-block w-100" src="800x400-1.png"></img>
                     </div>
@@ -29,7 +29,7 @@ class Landing extends Component {
                     <div class="carousel-item">
                       <img class = "d-block w-100" src="800x400-3.png"></img>
                     </div>
-                  </div>
+                  </a>
 
                   <a class = "carousel-control-prev" role="button" href="#bookCarousel" data-slide="prev">
                     <span class = "carousel-control-prev-icon" aria-hidden="true"></span>
