@@ -15,7 +15,6 @@ public class Book {
     private String isbn13;
     private String author;
     private String title;
-    @Transient
     private Date create_At;
     private Date update_At;
 

@@ -17,7 +17,6 @@ public class BookService {
         } catch (Exception e) {
             throw new BookAlreadyExistsException("Book '"+newBook.getTitle()+"' already exists");
         }
-
     }
 
 }
