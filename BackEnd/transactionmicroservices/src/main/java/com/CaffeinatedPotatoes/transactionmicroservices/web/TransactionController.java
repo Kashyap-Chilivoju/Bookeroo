@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 
 @CrossOrigin
 @RestController
@@ -29,13 +30,12 @@ public class TransactionController {
 
     @GetMapping
     public ResponseEntity<?> getTransactionById(@Valid @RequestBody TransactionRequest transactionRequest, BindingResult bindingResult){
-        Transaction returnedTransaction = transactionRepository.getTransactionById(transactionRequest.getId());
-
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(bindingResult);
         if(errorMap != null) {
             return errorMap;
         }
 
+        Transaction returnedTransaction = transactionRepository.getTransactionById(transactionRequest.getId());
         return new ResponseEntity<>(returnedTransaction, HttpStatus.OK);
     }
 

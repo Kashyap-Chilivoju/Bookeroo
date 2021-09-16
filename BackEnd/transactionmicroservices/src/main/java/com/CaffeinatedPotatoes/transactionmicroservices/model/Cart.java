@@ -12,6 +12,7 @@ public class Cart {
     private Long userId;
     private Date create_At;
     private Date update_At;
+    private Boolean activeCart;
 
     @PrePersist
     protected void onCreate(){
@@ -53,6 +54,14 @@ public class Cart {
 
     public void setUpdate_At(Date update_At) {
         this.update_At = update_At;
+    }
+
+    public Boolean getActiveCart() {
+        return activeCart;
+    }
+
+    public void setActiveCart(Boolean activeCart) {
+        this.activeCart = activeCart;
     }
 
 }

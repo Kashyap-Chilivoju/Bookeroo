@@ -10,6 +10,11 @@ import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Collection;
 
+/*
+ * NOTE: THE USER TYPES ARE A STRING AND LOWER CASE
+ * POSSIBLE USER TYPES ARE:
+ * user/admin/publisher/business
+ */
 
 @Entity
 public class User implements UserDetails {
@@ -29,6 +34,7 @@ public class User implements UserDetails {
     private String confirmPassword;
     private Date create_At;
     private Date update_At;
+
 
     //OneToMany with Project
 

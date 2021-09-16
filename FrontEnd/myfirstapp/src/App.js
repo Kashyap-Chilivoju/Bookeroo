@@ -55,11 +55,11 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/buy" component={Buy}/>
-            <Route exact path="/sell" component={Sell}/>
-            <Route exact path="/publish" component={Publish}/>
-            <Route exact path="/cart" component={Cart}/>
-            <Route exact path="/orderConfirm" component={OrderConfirm}/>
+            <Route exact path="/buy" component={Buy} />
+            <Route exact path="/sell" component={Sell} />
+            <Route exact path="/publish" component={Publish} />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/orderConfirm" component={OrderConfirm} />
 
             {
               //Private Routes
