@@ -11,13 +11,12 @@ import store from "./store";
 import Landing from "./components/Layout/Landing";
 import Register from "./components/UserManagement/Register";
 import Login from "./components/UserManagement/Login";
-<<<<<<< HEAD
+
 import Buy from "./components/BuySellAndPublish/Buy"
 import Sell from "./components/BuySellAndPublish/Sell"
 import Publish from "./components/BuySellAndPublish/Publish"
 import Cart from "./components/BuySellAndPublish/Cart"
-=======
->>>>>>> experimental
+import OrderConfirm from "./components/BuySellAndPublish/OrderConfirm"
 
 import jwt_decode from "jwt-decode";
 import setJWTToken from "./securityUtils/setJWTToken";
@@ -60,6 +59,7 @@ class App extends Component {
             <Route exact path="/sell" component={Sell}/>
             <Route exact path="/publish" component={Publish}/>
             <Route exact path="/cart" component={Cart}/>
+            <Route exact path="/orderConfirm" component={OrderConfirm}/>
 
             {
               //Private Routes
