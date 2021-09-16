@@ -29,7 +29,7 @@ public class TransactionController {
 
     @GetMapping
     public ResponseEntity<?> getTransactionById(@Valid @RequestBody TransactionRequest transactionRequest, BindingResult bindingResult){
-        Transaction returnedTransaction = transactionRepository.getTransactionByTransactionId(transactionRequest.getId());
+        Transaction returnedTransaction = transactionRepository.getTransactionById(transactionRequest.getId());
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(bindingResult);
         if(errorMap != null) {

@@ -8,28 +8,18 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private Long userId;
     private Double transactedAmount;
     private Date create_At;
     private Date update_At;
 
-    @PrePersist
-    protected void onCreate(){
-        this.create_At = new Date();
-    }
-
-    @PreUpdate
-    protected void onUpdate(){
-        this.update_At = new Date();
-    }
-
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public Long getUserId() {
@@ -63,4 +53,15 @@ public class Transaction {
     public void setUpdate_At(Date update_At) {
         this.update_At = update_At;
     }
+
+    @PrePersist
+    protected void onCreate(){
+        this.create_At = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate(){
+        this.update_At = new Date();
+    }
+
 }
