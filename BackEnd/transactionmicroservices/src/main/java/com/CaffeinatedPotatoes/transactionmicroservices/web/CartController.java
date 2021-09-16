@@ -11,11 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@CrossOrigin
+@RestController
+@RequestMapping("/api/cart")
 public class CartController {
 
     @Autowired
@@ -28,7 +30,7 @@ public class CartController {
     private MapValidationErrorService mapValidationErrorService;
 
     //Call cartService to add item to cart
-    @PostMapping
+    @PostMapping("/addItemToCart")
     public ResponseEntity<?> addItemToCart(@Valid @RequestBody AddItemToCart addItemToCart, BindingResult bindingResult){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(bindingResult);
         if(errorMap != null) {
@@ -41,13 +43,12 @@ public class CartController {
     }
 
     //Calls cartService to remove cart item
-    @PostMapping
+    @PostMapping("/removeItemFromCart")
     public ResponseEntity<?> removeItemFromCart(@Valid @RequestBody CartItemRequest cartItemRequest, BindingResult bindingResult){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(bindingResult);
         if(errorMap != null) {
             return errorMap;
         }
-
 
         cartService.removeCartItem(cartItemRequest);
         return new ResponseEntity<>(HttpStatus.OK);

@@ -28,7 +28,7 @@ public class TransactionController {
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
-    @GetMapping
+    @GetMapping("/getTransactionById")
     public ResponseEntity<?> getTransactionById(@Valid @RequestBody TransactionRequest transactionRequest, BindingResult bindingResult){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(bindingResult);
         if(errorMap != null) {
@@ -38,5 +38,6 @@ public class TransactionController {
         Transaction returnedTransaction = transactionRepository.getTransactionById(transactionRequest.getId());
         return new ResponseEntity<>(returnedTransaction, HttpStatus.OK);
     }
+
 
 }
