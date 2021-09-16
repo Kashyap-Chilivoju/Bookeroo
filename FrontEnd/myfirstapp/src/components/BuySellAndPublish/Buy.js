@@ -7,36 +7,7 @@ class Buy extends Component {
                 <div class="container">
                     <div class ="row">
                         <div class="col-md-5 col-sm-12 col-xs-12">
-                            <div class="book-image">
-                                <div id="bookCarousel" class="carousel-slide">
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#bookCarousel" data-slide-to="0" class="active"></li>
-                                        <li data-target="#bookCarousel" data-slide-to="1" class="active"></li>
-                                        <li data-target="#bookCarousel" data-slide-to="2" class="active"></li>
-                                    </ol>
-
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img class = "image-responsive" src="https://via.placeholder.com/700x400/FFB6C1/000000"></img>
-                                        </div>
-
-                                        <div class="carousel-item">
-                                            <img class = "image-responsive" src="https://via.placeholder.com/700x400/87CEFA/000000"></img>
-                                        </div>
-
-                                        <div class="carousel-item">
-                                            <img class = "image-responsive" src="https://via.placeholder.com/700x400/B0C4DE/000000"></img>
-                                        </div>
-
-                                    </div>
-
-                                    <a class = "left carousel-control" href="#bookCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                                    <a class = "right carousel-control" href="#bookCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                                </div>
-
-                            </div>
-                                    
+                            <img class = "image-responsive" src="https://via.placeholder.com/700x400/FFB6C1/000000"></img>
                         </div>
                         
                         <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
