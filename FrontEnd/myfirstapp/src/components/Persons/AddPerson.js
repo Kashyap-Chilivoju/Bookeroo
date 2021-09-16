@@ -101,9 +101,9 @@ class AddPerson extends Component {
 }
 AddPerson.propTypes = {
     createProject: PropTypes.func.isRequired
-};
+  };
   
-export default connect(
+  export default connect(
     null,
     { createPerson }
-    )(AddPerson);
+  )(AddPerson);

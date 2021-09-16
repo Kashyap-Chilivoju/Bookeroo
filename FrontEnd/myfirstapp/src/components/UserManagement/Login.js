@@ -1,33 +1,28 @@
 import React, { Component } from "react";
-import { login} from "../../actions/securityActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
-
+import { login } from "../../actions/securityActions";
 
 class Login extends Component {
-  constructor(){
+  constructor() {
     super();
-
     this.state = {
       username: "",
       password: "",
       errors: {}
     };
-
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentDidMount() {
-    /*
     if (this.props.security.validToken) {
       this.props.history.push("/dashboard");
     }
-    */
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     if (nextProps.security.validToken) {
       this.props.history.push("/dashboard");
     }
@@ -39,11 +34,12 @@ class Login extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const loginRequest = {
+    const LoginRequest = {
       username: this.state.username,
       password: this.state.password
     };
-    this.props.login(loginRequest);
+
+    this.props.login(LoginRequest);
   }
 
   onChange(e) {
@@ -61,17 +57,17 @@ class Login extends Component {
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
-                    type="email"
+                    type="text"
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.username
                     })}
                     placeholder="Email Address"
                     name="username"
-                    value= {this.state.username}
+                    value={this.state.username}
                     onChange={this.onChange}
                   />
                   {errors.username && (
-                      <div className="invalid-feedback">{errors.username}</div>
+                    <div className="invalid-feedback">{errors.username}</div>
                   )}
                 </div>
                 <div className="form-group">
@@ -82,11 +78,11 @@ class Login extends Component {
                     })}
                     placeholder="Password"
                     name="password"
-                    value= {this.state.password}
+                    value={this.state.password}
                     onChange={this.onChange}
                   />
                   {errors.password && (
-                      <div className="invalid-feedback">{errors.password}</div>
+                    <div className="invalid-feedback">{errors.password}</div>
                   )}
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
@@ -111,6 +107,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-    null,
-    { login }
+  mapStateToProps,
+  { login }
 )(Login);
